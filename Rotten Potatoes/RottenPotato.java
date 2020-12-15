@@ -46,7 +46,7 @@ public class RottenPotato {
             }
             
         }
-        answer = sum /= ratings[ratings.length][ratings[0].length];
+        answer = sum /= ratings[ratings.length-1][ratings[0].length-1];
         return answer;
     }
 
@@ -65,8 +65,20 @@ public class RottenPotato {
     }
     return smallestReviewer;
 }
+
     //question 5
     public static int worstMovie2018(int[][] ratings) {
-        return -1;
+        int sum = 0;
+        int lowestMovie = 0;
+        int worstMovie = 0;
+        for(int r = 0; r < ratings.length; r++){
+            if(sum < lowestMovie)lowestMovie = sum;
+            sum = 0;
+            worstMovie = r;
+            for(int c = 0; c< ratings[0].length; c++){
+                sum += ratings[r][c];
+            }
+    }
+    return worstMovie;
     }   
 }
